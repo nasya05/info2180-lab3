@@ -8,10 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     newGamebtn.addEventListener('click', function() {
         
-
+        boardDiv.innerHTML = '';
+        
+        board = ['', '', '', '', '', '', '', '', ''];
+        
+        letter = 0;
+        boardstatus.classList.remove('you-won');
+        boardstatus.textContent = "Move your mouse over a square and click to play an X or an O.!";
                
        
-
         for (let i = 0; i < 9; i++) { // Create 9 squares for a 3x3 grid
             const square = document.createElement('div');
             square.classList.add('square');
@@ -34,12 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
 });
-//alert(board);
-let board = ['', '', '', '', '', '', '', '', '', ''];
-let letter = 0;
+
+//let board = ['', '', '', '', '', '', '', '', '', ''];
+//let letter = 0;
 
 function Squarebtn(event){
-    //alert("New Game Started!");
+    
     const square = event.target.getAttribute('snum');
      
     
@@ -83,14 +88,7 @@ function Hoveroutbtn(event){
     event.target.classList.remove('hover');
 }
 
-/*function getWin(){
-    if (board[0] == board[1]==board[2] || board[3] == board[4]==board[5] ||
-        board[6] == board[7]==board[8]||board[0] == board[3]==board[6] || board[1] == board[4]==board[7]||
-        board[2] == board[5]==board[8]||board[0] == board[4]==board[8]||board[2] == board[4]==board[6]
-     ){
-        alert('win');
-     }
-}*/
+
 function getWin() {
 
     let winner = '';
